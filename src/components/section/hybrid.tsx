@@ -1,14 +1,14 @@
 import { Cloud } from "lucide-react";
 import { motion } from "motion/react";
-import hybrid from "@/assets/hybrid.png";
+import hybrid from "@/assets/hybrid-ecosystem.png";
 import { Users, ChefHat, Wallet, LineChart } from "lucide-react";
 
-export function Hybrid() {
+export function Hybrid({ t }: { t: any }) {
   const steps = [
-    { icon: Users, t: "Waiter takes the order", s: "Tap items on a phone, send straight to the kitchen.", color: "bg-[oklch(0.78_0.16_75)] text-ink" },
-    { icon: ChefHat, t: "Kitchen sees it instantly", s: "Live ticket display, no scribbled paper, no missed items.", color: "gradient-teal text-background" },
-    { icon: Wallet, t: "Cashier closes the bill", s: "Payment, printing and reporting in two taps.", color: "gradient-burgundy text-background" },
-    { icon: LineChart, t: "Owner watches live", s: "Real-time sales and analytics from anywhere in the world.", color: "bg-ink text-background" },
+    { icon: Users, ...t.steps[0], color: "bg-[oklch(0.78_0.16_75)] text-ink" },
+    { icon: ChefHat, ...t.steps[1], color: "gradient-teal text-background" },
+    { icon: Wallet, ...t.steps[2], color: "gradient-burgundy text-background" },
+    { icon: LineChart, ...t.steps[3], color: "bg-ink text-background" },
   ];
   return (
     <section id="hybrid" className="bg-ink text-background relative overflow-hidden">
@@ -16,14 +16,13 @@ export function Hybrid() {
       <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
         <div className="max-w-2xl">
           <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-[oklch(0.78_0.16_75)]">
-            <Cloud className="h-3.5 w-3.5" /> The Hybrid Ecosystem
+            <Cloud className="h-3.5 w-3.5" /> {t.badge}
           </span>
           <h2 className="font-display text-4xl md:text-5xl font-bold mt-3 leading-tight">
-            Waiter, Kitchen, Cashier — <span className="italic text-[oklch(0.78_0.16_75)]">in sync.</span>
+            {t.title1} <span className="italic text-[oklch(0.78_0.16_75)]">{t.title2}</span>
           </h2>
           <p className="mt-5 text-lg text-background/70 leading-relaxed">
-            When you're ready to scale, Smart bono Hybrid connects every role in your cafe. Orders flow
-            instantly across devices and into the cloud — so owners can manage the floor from anywhere.
+            {t.sub}
           </p>
         </div>
 
@@ -33,7 +32,7 @@ export function Hybrid() {
           </div>
 
           <ol className="space-y-5">
-            {steps.map((s, i) => (
+            {steps.map((s: any, i) => (
               <motion.li
                 key={s.t}
                 initial={{ opacity: 0, x: 20 }}
@@ -46,7 +45,7 @@ export function Hybrid() {
                   <s.icon className="h-5 w-5" />
                 </div>
                 <div>
-                  <div className="text-xs font-mono text-background/50">STEP 0{i + 1}</div>
+                  <div className="text-xs font-mono text-background/50">{s.lbl}</div>
                   <div className="font-display text-xl font-bold mt-0.5">{s.t}</div>
                   <div className="text-sm text-background/70 mt-1">{s.s}</div>
                 </div>

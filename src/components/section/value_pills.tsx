@@ -1,16 +1,16 @@
 import { motion } from "motion/react";
 import { WifiOff, Smartphone, Cloud } from "lucide-react";
 
-export function ValuePills() {
+export function ValuePills({ t }: { t: any }) {
   const pills = [
-    { icon: WifiOff, t: "Reliability", s: "Works fully offline — power cuts and dropped connections never stop a sale." },
-    { icon: Smartphone, t: "Modernity", s: "Print thermal receipts straight from your phone. No PC, no cables." },
-    { icon: Cloud, t: "Control", s: "Optional hybrid sync gives owners live analytics from anywhere." },
+    { icon: WifiOff, ...t.pill1 },
+    { icon: Smartphone, ...t.pill2 },
+    { icon: Cloud, ...t.pill3 },
   ];
   return (
     <section className="border-y border-border bg-cream">
       <div className="mx-auto max-w-7xl px-6 py-16 grid md:grid-cols-3 gap-8">
-        {pills.map((p, i) => (
+        {pills.map((p: any, i) => (
           <motion.div
             key={p.t}
             initial={{ opacity: 0, y: 20 }}

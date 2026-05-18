@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import { ArrowRight, Printer, WifiOff } from "lucide-react";
 import phonePrinter from "@/assets/phone-printer.png";
 
-export function Hero() {
+export function Hero({ t }: { t: any }) {
   return (
     <section className="relative overflow-hidden gradient-hero">
       <div className="mx-auto max-w-7xl px-6 pt-20 pb-24 md:pt-28 md:pb-32 grid lg:grid-cols-12 gap-12 items-center">
@@ -14,40 +14,38 @@ export function Hero() {
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/80 px-3 py-1.5 text-xs font-medium text-muted-foreground mb-6">
             <span className="h-1.5 w-1.5 rounded-full bg-[oklch(0.5_0.08_195)]" />
-            Built by Alarm Technology · Made in Ethiopia
+            {t.badge}
           </div>
           <h1 className="font-display text-5xl md:text-7xl font-bold leading-[1.02] text-ink">
-            Run your cafe.
+            {t.title1}
             <br />
-            <span className="italic text-[oklch(0.45_0.16_25)]">No internet.</span>
+            <span className="italic text-[oklch(0.45_0.16_25)]">{t.title2}</span>
             <br />
-            No limits.
+            {t.title3}
           </h1>
           <p className="mt-6 max-w-xl text-lg text-muted-foreground leading-relaxed">
-            Smart bono is a professional, Amharic-native cafeteria system. Take orders, manage
-            sales and print receipts entirely <strong className="text-foreground">offline</strong> —
-            straight from your phone.
+            {t.subtitle}
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="#pricing"
               className="inline-flex items-center gap-2 rounded-full gradient-burgundy text-background px-6 py-3.5 text-sm font-semibold shadow-soft hover:opacity-95 transition"
             >
-              See pricing <ArrowRight className="h-4 w-4" />
+              {t.btnPricing} <ArrowRight className="h-4 w-4" />
             </a>
             <a
               href="#printing"
               className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3.5 text-sm font-semibold hover:bg-muted transition"
             >
-              How it works
+              {t.btnHow}
             </a>
           </div>
 
           <dl className="mt-12 grid grid-cols-3 gap-6 max-w-md">
             {[
-              { k: "100%", v: "Offline ready" },
-              { k: "2", v: "Languages" },
-              { k: "4", v: "Pricing tiers" },
+              { k: "100%", v: t.stats.offline },
+              { k: "2", v: t.stats.languages },
+              { k: "4", v: t.stats.tiers },
             ].map((s) => (
               <div key={s.v}>
                 <dt className="font-display text-3xl font-bold text-ink">{s.k}</dt>
@@ -76,8 +74,8 @@ export function Hero() {
               <WifiOff className="h-4 w-4 text-background" />
             </div>
             <div>
-              <div className="text-xs text-muted-foreground">Connection</div>
-              <div className="text-sm font-semibold">Offline · still selling</div>
+              <div className="text-xs text-muted-foreground">{t.floating.offlineSub}</div>
+              <div className="text-sm font-semibold">{t.floating.offlineTitle}</div>
             </div>
           </motion.div>
           <motion.div
@@ -90,8 +88,8 @@ export function Hero() {
               <Printer className="h-4 w-4 text-ink" />
             </div>
             <div>
-              <div className="text-xs text-muted-foreground">Receipt #000125</div>
-              <div className="text-sm font-semibold">Printed in 1.2s</div>
+              <div className="text-xs text-muted-foreground">{t.floating.receiptSub}</div>
+              <div className="text-sm font-semibold">{t.floating.receiptTitle}</div>
             </div>
           </motion.div>
         </motion.div>
