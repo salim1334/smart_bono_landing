@@ -14,7 +14,11 @@ export function SmartPrinting({ t }: { t: any }) {
           className="order-2 lg:order-1"
         >
           <div className="rounded-3xl overflow-hidden border border-border shadow-soft">
-            <img src={manApp} alt="A cashier proudly showing Smart bono and a printed receipt" className="w-full h-auto" />
+            <img
+              src={manApp}
+              alt="A cashier proudly showing Smart bono and a printed receipt"
+              className="w-full h-auto"
+            />
           </div>
         </motion.div>
 

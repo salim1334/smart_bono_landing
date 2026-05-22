@@ -2,7 +2,18 @@ import { motion } from "motion/react";
 import { ArrowRight, Printer, WifiOff } from "lucide-react";
 import phonePrinter from "@/assets/phone-printer.png";
 
-export function Hero({ t }: { t: any }) {
+export function Hero({
+  t,
+  onBookDemo,
+}: {
+  t: {
+    btnPricing: string;
+    btnHow: string;
+    btnDemo?: string;
+    [key: string]: unknown;
+  };
+  onBookDemo: () => void;
+}) {
   return (
     <section className="relative overflow-hidden gradient-hero">
       <div className="mx-auto max-w-7xl px-6 pt-20 pb-24 md:pt-28 md:pb-32 grid lg:grid-cols-12 gap-12 items-center">
@@ -19,7 +30,9 @@ export function Hero({ t }: { t: any }) {
           <h1 className="font-display text-5xl md:text-7xl font-bold leading-[1.02] text-ink">
             {t.title1}
             <br />
-            <span className="italic text-[oklch(0.45_0.16_25)]">{t.title2}</span>
+            <span className="italic text-[oklch(0.45_0.16_25)]">
+              {t.title2}
+            </span>
             <br />
             {t.title3}
           </h1>
@@ -27,12 +40,14 @@ export function Hero({ t }: { t: any }) {
             {t.subtitle}
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href="#pricing"
+            <button
+              type="button"
+              onClick={onBookDemo}
               className="inline-flex items-center gap-2 rounded-full gradient-burgundy text-background px-6 py-3.5 text-sm font-semibold shadow-soft hover:opacity-95 transition"
             >
-              {t.btnPricing} <ArrowRight className="h-4 w-4" />
-            </a>
+              {(t.btnDemo as string) || "Book a free demo"}{" "}
+              <ArrowRight className="h-4 w-4" />
+            </button>
             <a
               href="#printing"
               className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3.5 text-sm font-semibold hover:bg-muted transition"
@@ -48,7 +63,9 @@ export function Hero({ t }: { t: any }) {
               { k: "4", v: t.stats.tiers },
             ].map((s) => (
               <div key={s.v}>
-                <dt className="font-display text-3xl font-bold text-ink">{s.k}</dt>
+                <dt className="font-display text-3xl font-bold text-ink">
+                  {s.k}
+                </dt>
                 <dd className="text-xs text-muted-foreground mt-1">{s.v}</dd>
               </div>
             ))}
@@ -62,7 +79,11 @@ export function Hero({ t }: { t: any }) {
           className="lg:col-span-5 relative"
         >
           <div className="relative rounded-3xl overflow-hidden shadow-glow border border-border">
-            <img src={phonePrinter} alt="Smart bono on a phone printing a receipt" className="w-full h-auto" />
+            <img
+              src={phonePrinter}
+              alt="Smart bono on a phone printing a receipt"
+              className="w-full h-auto"
+            />
           </div>
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -74,8 +95,12 @@ export function Hero({ t }: { t: any }) {
               <WifiOff className="h-4 w-4 text-background" />
             </div>
             <div>
-              <div className="text-xs text-muted-foreground">{t.floating.offlineSub}</div>
-              <div className="text-sm font-semibold">{t.floating.offlineTitle}</div>
+              <div className="text-xs text-muted-foreground">
+                {t.floating.offlineSub}
+              </div>
+              <div className="text-sm font-semibold">
+                {t.floating.offlineTitle}
+              </div>
             </div>
           </motion.div>
           <motion.div
@@ -88,8 +113,12 @@ export function Hero({ t }: { t: any }) {
               <Printer className="h-4 w-4 text-ink" />
             </div>
             <div>
-              <div className="text-xs text-muted-foreground">{t.floating.receiptSub}</div>
-              <div className="text-sm font-semibold">{t.floating.receiptTitle}</div>
+              <div className="text-xs text-muted-foreground">
+                {t.floating.receiptSub}
+              </div>
+              <div className="text-sm font-semibold">
+                {t.floating.receiptTitle}
+              </div>
             </div>
           </motion.div>
         </motion.div>

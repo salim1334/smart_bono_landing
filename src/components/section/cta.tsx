@@ -1,6 +1,19 @@
 import { ArrowRight } from "lucide-react";
+import { TELEGRAM_URL } from "@/lib/contact";
 
-export function CTA({ t }: { t: any }) {
+export function CTA({
+  t,
+  onBookDemo,
+}: {
+  t: {
+    title: string;
+    sub: string;
+    pricing: string;
+    sales: string;
+    bookDemo?: string;
+  };
+  onBookDemo: () => void;
+}) {
   return (
     <section className="mx-auto max-w-7xl px-6 pb-24">
       <div className="relative overflow-hidden rounded-[2rem] gradient-burgundy text-background p-12 md:p-16 shadow-glow">
@@ -9,18 +22,19 @@ export function CTA({ t }: { t: any }) {
           <h2 className="font-display text-4xl md:text-5xl font-bold leading-tight">
             {t.title}
           </h2>
-          <p className="mt-4 text-background/85 text-lg">
-            {t.sub}
-          </p>
+          <p className="mt-4 text-background/85 text-lg">{t.sub}</p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href="#pricing"
+            <button
+              type="button"
+              onClick={onBookDemo}
               className="inline-flex items-center gap-2 rounded-full bg-background text-ink px-6 py-3.5 text-sm font-semibold hover:opacity-90 transition"
             >
-              {t.pricing} <ArrowRight className="h-4 w-4" />
-            </a>
+              {t.bookDemo || "Book a demo"} <ArrowRight className="h-4 w-4" />
+            </button>
             <a
-              href="mailto:hello@alarmtech.et"
+              href={TELEGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-background/30 px-6 py-3.5 text-sm font-semibold hover:bg-background/10 transition"
             >
               {t.sales}

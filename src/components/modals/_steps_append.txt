@@ -1,0 +1,19 @@
+
+
+export function StepBusiness({
+  form,
+  update,
+  t,
+  onboardingT,
+  showCity = false,
+}: {
+  form: BookingFormState;
+  update: (k: keyof BookingFormState, v: string) => void;
+  t: DemoBookingCopy;
+  onboardingT?: OnboardingCopy;
+  showCity?: boolean;
+}) {
+  return (
+    <div className="space-y-4">
+      <motion>
+        <label className="block text-xs font-semibold mb-1.5">{t.businessName}</label>

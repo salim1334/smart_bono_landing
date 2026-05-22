@@ -24,7 +24,9 @@ export function ValuePills({ t }: { t: any }) {
             </div>
             <div>
               <h3 className="font-display text-xl font-bold">{p.t}</h3>
-              <p className="text-sm text-muted-foreground mt-1 leading-relaxed">{p.s}</p>
+              <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
+                {p.s}
+              </p>
             </div>
           </motion.div>
         ))}

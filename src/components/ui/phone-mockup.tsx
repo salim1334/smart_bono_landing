@@ -1,4 +1,10 @@
-export function PhoneMockup({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+export function PhoneMockup({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
     <div
       className={`relative mx-auto bg-zinc-800 border-[2px] border-zinc-800 rounded-[2.5rem] shadow-2xl ${className}`}

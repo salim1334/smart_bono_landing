@@ -85,9 +85,28 @@
   --ring: oklch(0.5 0.08 195);
   --coffee: oklch(0.35 0.08 45);
   --ink: oklch(0.18 0.02 40);
-  --gradient-hero: radial-gradient(ellipse at top right, oklch(0.78 0.16 75 / 0.25), transparent 60%), radial-gradient(ellipse at bottom left, oklch(0.5 0.08 195 / 0.18), transparent 55%), linear-gradient(180deg, oklch(0.985 0.012 80), oklch(0.96 0.02 70));
-  --gradient-burgundy: linear-gradient(135deg, oklch(0.45 0.16 25), oklch(0.35 0.14 25));
-  --gradient-teal: linear-gradient(135deg, oklch(0.55 0.09 195), oklch(0.42 0.07 200));
+  --gradient-hero:
+    radial-gradient(
+      ellipse at top right,
+      oklch(0.78 0.16 75 / 0.25),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at bottom left,
+      oklch(0.5 0.08 195 / 0.18),
+      transparent 55%
+    ),
+    linear-gradient(180deg, oklch(0.985 0.012 80), oklch(0.96 0.02 70));
+  --gradient-burgundy: linear-gradient(
+    135deg,
+    oklch(0.45 0.16 25),
+    oklch(0.35 0.14 25)
+  );
+  --gradient-teal: linear-gradient(
+    135deg,
+    oklch(0.55 0.09 195),
+    oklch(0.42 0.07 200)
+  );
   --shadow-soft: 0 20px 50px -20px oklch(0.35 0.08 45 / 0.25);
   --shadow-glow: 0 30px 80px -30px oklch(0.5 0.08 195 / 0.45);
   --chart-1: oklch(0.646 0.222 41.116);
@@ -148,21 +167,45 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: 'Inter', system-ui, sans-serif;
-    font-feature-settings: 'ss01', 'cv11';
+    font-family: "Inter", system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv11";
   }
-  h1, h2, h3, h4, .font-display {
-    font-family: 'Fraunces', Georgia, serif;
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-display {
+    font-family: "Fraunces", Georgia, serif;
     letter-spacing: -0.02em;
   }
-  .text-coffee { color: var(--coffee); }
-  .bg-coffee { background-color: var(--coffee); }
-  .text-ink { color: var(--ink); }
-  .bg-ink { background-color: var(--ink); }
-  .bg-cream { background-color: oklch(0.96 0.02 70); }
-  .gradient-hero { background: var(--gradient-hero); }
-  .gradient-burgundy { background: var(--gradient-burgundy); }
-  .gradient-teal { background: var(--gradient-teal); }
-  .shadow-soft { box-shadow: var(--shadow-soft); }
-  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .text-coffee {
+    color: var(--coffee);
+  }
+  .bg-coffee {
+    background-color: var(--coffee);
+  }
+  .text-ink {
+    color: var(--ink);
+  }
+  .bg-ink {
+    background-color: var(--ink);
+  }
+  .bg-cream {
+    background-color: oklch(0.96 0.02 70);
+  }
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  .gradient-burgundy {
+    background: var(--gradient-burgundy);
+  }
+  .gradient-teal {
+    background: var(--gradient-teal);
+  }
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
 }

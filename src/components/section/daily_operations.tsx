@@ -22,7 +22,10 @@ export function DailyOperations({ t }: { t: any }) {
             <Smartphone className="h-3.5 w-3.5" /> {t.badge}
           </span>
           <h2 className="font-display text-4xl md:text-5xl font-bold mt-3 leading-tight text-ink">
-            {t.title1} <span className="italic text-[oklch(0.45_0.16_25)]">{t.title2}</span>
+            {t.title1}{" "}
+            <span className="italic text-[oklch(0.45_0.16_25)]">
+              {t.title2}
+            </span>
           </h2>
           <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
             {t.sub}
@@ -40,10 +43,18 @@ export function DailyOperations({ t }: { t: any }) {
           className="grid grid-cols-2 gap-4 sm:gap-6 items-start"
         >
           <PhoneMockup>
-            <img src={cafeteria} alt="Cafeteria menu layout" className="w-full h-auto block" />
+            <img
+              src={cafeteria}
+              alt="Cafeteria menu layout"
+              className="w-full h-auto block"
+            />
           </PhoneMockup>
           <PhoneMockup className="mt-4 md:mt-12">
-            <img src={successPrint} alt="Successful order confirmation" className="w-full h-auto block" />
+            <img
+              src={successPrint}
+              alt="Successful order confirmation"
+              className="w-full h-auto block"
+            />
           </PhoneMockup>
         </motion.div>
       </div>

@@ -5,11 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build",
+    "build": "vite build && node scripts/generate-hosting-html.mjs",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "firebase:deploy:rules": "npx -y firebase-tools@latest deploy --only firestore:rules,firestore:indexes",
+    "firebase:deploy:hosting": "npm run build && firebase deploy --only hosting"
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.25.5",
@@ -50,6 +52,7 @@
     "cmdk": "^1.1.1",
     "date-fns": "^4.1.0",
     "embla-carousel-react": "^8.6.0",
+    "firebase": "^12.13.0",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.575.0",
     "motion": "^12.38.0",
@@ -74,15 +77,17 @@
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "@vitejs/plugin-react": "^5.0.4",
+    "cross-env": "^7.0.3",
     "eslint": "^9.32.0",
-    "eslint-config-prettier": "^10.1.1",
-    "eslint-plugin-prettier": "^5.2.6",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^15.15.0",
-    "prettier": "^3.7.3",
+    "prettier": "^3.6.2",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.56.1",
     "vite": "^7.3.1"
+  },
+  "prettier": {
+    "endOfLine": "lf"
   }
 }
