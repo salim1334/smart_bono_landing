@@ -11,7 +11,8 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "firebase:deploy:rules": "npx -y firebase-tools@latest deploy --only firestore:rules,firestore:indexes",
-    "firebase:deploy:hosting": "npm run build && firebase deploy --only hosting"
+    "firebase:clear-hosting-cache": "node scripts/clear-firebase-hosting-cache.mjs",
+    "firebase:deploy:hosting": "npm run build && npm run firebase:clear-hosting-cache && npx -y firebase-tools@latest deploy --only hosting"
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.25.5",

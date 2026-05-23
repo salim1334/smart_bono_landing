@@ -23,11 +23,11 @@ export const dictionaries = {
     },
     hero: {
       badge: "Built by Alarm Technology",
-      title1: "Run your cafe.",
-      title2: "No internet.",
-      title3: "No limits.",
+      title1: "Digitize your Bono.",
+      title2: "Track every order.",
+      title3: "Zero calculations.",
       subtitle:
-        "Smart bono is a professional, Amharic-native cafeteria system. Take orders, manage sales and print receipts entirely offline — straight from your phone.",
+        "Smart bono replaces traditional paper tickets with a reliable, Amharic-native digital system. Stop losing orders, correctly track each waiter's sales, and instantly calculate your daily income — entirely offline.",
       btnPricing: "See pricing",
       btnDemo: "Book a free demo",
       btnHow: "How it works",
@@ -37,42 +37,42 @@ export const dictionaries = {
         tiers: "Pricing tiers",
       },
       floating: {
-        offlineTitle: "Offline · still selling",
-        offlineSub: "Connection",
-        receiptTitle: "Printed in 1.2s",
-        receiptSub: "Receipt #000125",
+        offlineTitle: "Tracked perfectly",
+        offlineSub: "Accuracy",
+        receiptTitle: "Waiter #03 / Bono-12",
+        receiptSub: "Order Tracked",
       },
     },
     valuePills: {
       pill1: {
-        t: "Reliability",
-        s: "Works fully offline — power cuts and dropped connections never stop a sale.",
+        t: "Accuracy",
+        s: "Eliminate paper mistakes. Every order is correctly assigned to the right waiter.",
       },
       pill2: {
-        t: "Modernity",
-        s: "Print thermal receipts straight from your phone. No PC, no cables.",
+        t: "Reliability",
+        s: "Works fully offline — power cuts and dropped connections never disrupt your daily total.",
       },
       pill3: {
         t: "Control",
-        s: "Optional hybrid sync gives owners live analytics from anywhere.",
+        s: "Perfectly track income from all waiters and connect your entire cafe operations.",
       },
     },
     smartPrinting: {
-      badge: "Smart Printing",
-      title: "One phone is all your floor needs.",
-      sub: "Forget bulky desktops and tangled cables. Smart bono pairs wirelessly with any thermal printer, so your cashier carries the entire counter in their pocket.",
+      badge: "Digital Waiter Tracking",
+      title: "Say goodbye to lost paper tickets.",
+      sub: "Forget manually calculating handwritten paper bonos at the end of the shift. Smart bono instantly tracks every order linked to the waiter, saving you hours of daily cash reconciliation.",
       features: [
         {
-          t: "Bluetooth thermal printing",
-          s: "Pair once, print forever. Print receipts in Amharic.",
+          t: "100% Accurate Shifts",
+          s: "Know exactly who sold what, and catch discrepancies instantly.",
         },
         {
-          t: "No PC, no clutter",
-          s: "A modern, sleek counter that fits any cafe aesthetic.",
+          t: "Digital & Printed Bonos",
+          s: "Manage digital orders and pair with thermal printers for professional receipts.",
         },
         {
-          t: "Professional receipts",
-          s: "Custom header, logo, taxes and totals — every time.",
+          t: "Stop Income Leakage",
+          s: "Every dispatched order is logged, eliminating unrecorded sales.",
         },
       ],
     },
@@ -106,13 +106,13 @@ export const dictionaries = {
     },
     dailyOps: {
       badge: "Floor Operations",
-      title1: "Tap, order, and",
-      title2: "print instantly.",
-      sub: "Easily browse products, take orders, and print receipts in seconds. Keep track of all-day sales, monitor delivered items directly from the counter, and view performance for every individual waiter on your shift.",
+      title1: "Track orders and",
+      title2: "calculate instantly.",
+      sub: "Replace stacks of handwritten tickets with a few taps. Keep track of all-day sales flawlessly, monitor delivered items directly from the counter, and see precise performance for every individual waiter without mental math.",
       minis: [
         { lbl: "Quick Ordering", sub: "Visual product menu" },
-        { lbl: "Instant Print", sub: "Zero-delay receipts" },
-        { lbl: "Daily Sales", sub: "Track shifts easily" },
+        { lbl: "No Lost Tickets", sub: "Everything saved digitally" },
+        { lbl: "Daily Sales", sub: "Instant precise calculation" },
         { lbl: "Waiter Stats", sub: "Individual performance" },
       ],
     },
@@ -162,7 +162,7 @@ export const dictionaries = {
         Hybrid: "ሃይብሪድ",
       },
       tiersTag: {
-        Entry: "Essential offline printing",
+        Entry: "Essential offline waiter tracking",
         Professional: "Adds cashflow management",
         Full: "Ingredients & inventory",
         Hybrid: "Enterprise multi-device sync",
@@ -170,7 +170,7 @@ export const dictionaries = {
       tiersFeat: {
         Entry: [
           "Offline-first POS",
-          "Mobile thermal printing",
+          "Digital waiter tracking",
           "Menu & order taking",
           "Daily sales summary",
           "Amharic + English UI",
@@ -203,8 +203,8 @@ export const dictionaries = {
     trust: {
       items: [
         {
-          t: "Data backup",
-          s: "Your sales data is safely backed up — on device and (optionally) in the cloud.",
+          t: "Extremely easy to use",
+          s: "Designed for any typical cashier or waiter. No tech skills or complicated training needed.",
         },
         {
           t: "Connectivity-proof",
@@ -217,8 +217,8 @@ export const dictionaries = {
       ],
     },
     cta: {
-      title: "Ready to bring Smart bono to your cafe?",
-      sub: "Talk to the Alarm Technology team. We'll set you up with the right tier, train your staff and get your first receipt printing today.",
+      title: "Ready to bring Smart Bono to your cafe?",
+      sub: "Talk to the Alarm Technology team. We'll set you up with the right tier, train your staff, and start tracking your waiter's orders effortlessly today.",
       pricing: "See pricing",
       bookDemo: "Book a demo",
       sales: "Contact sales",
@@ -390,7 +390,7 @@ export const dictionaries = {
       title2: "ያለ ኢንተርኔት።",
       title3: "ያለምንም ውጣውረድ።",
       subtitle:
-        "ስማርት ቦኖ አማርኛን እና እንግሊዝኛን የሚረዳ የካፌ ስርዓት ነው። ትዕዛዞችን ይቀበሉ፣ ሽያጭዎን ያስተዳድሩ እና ደረሰኞችን በቀጥታ ከስልክዎ ያትሙ - ሙሉ በሙሉ ያለ ኢንተርኔት።",
+        "ስማርት ቦኖ ባህላዊውን የወረቀት ቦኖ/ትኬት በመተካት፣ የእያንዳንዱን አስተናጋጅ ትዕዛዝ ያለምንም የሂሳብ ስህተት እንዲቆጣጠሩ እና የዕለቱን ትክክለኛ ገቢዎን በቀላሉ እንዲያሰሉ የሚረዳ ሲስተም ነው - ሙሉ በሙሉ ያለ ኢንተርኔት።",
       btnPricing: "ዋጋዎቹን ይመልከቱ",
       btnDemo: "ነጻ ዴሞ ያስይዙ",
       btnHow: "እንዴት እንደሚሰራ",
@@ -400,39 +400,42 @@ export const dictionaries = {
         tiers: "የአከፋፈል አማራጮች",
       },
       floating: {
-        offlineTitle: "ከኢንተርኔት ውጭም ሽያጭ አይቋረጥም",
-        offlineSub: "ኢንተርኔት (Connection)",
-        receiptTitle: "በ1.2 ሰከንድ የታተመ",
-        receiptSub: "ደረሰኝ #000125",
+        offlineTitle: "በትክክል የተመዘገበ",
+        offlineSub: "ትክክለኛነት",
+        receiptTitle: "አስተናጋጅ #03 / ቦኖ-12",
+        receiptSub: "ትዕዛዝ ተመዝግቧል",
       },
     },
     valuePills: {
       pill1: {
         t: "አስተማማኝነት",
-        s: "ሙሉ በሙሉ ከመስመር ውጭ(Offline) ይሰራል - የመብራት መቆራረጥም ሆነ የኔትዎርክ መጥፋት ሽያጭዎን አያስተጓጉልም።",
+        s: "ሙሉ በሙሉ ከኢንተርኔት ውጭ(Offline) ይሰራል - የመብራት መቆራረጥም ሆነ የኔትዎርክ መጥፋት ሽያጭዎን አያስተጓጉልም።",
       },
       pill2: {
         t: "ዘመናዊነት",
-        s: "የሙቀት ደረሰኞችን (Thermal receipts) በቀጥታ ከስልክዎ ያትሙ። ኮምፒውተርም ሆነ ገመድ አያስፈልግም።",
+        s: "ዘመናዊ ቦኖ/ትኬቶችን (Smart Bono) በቀጥታ ከስልክዎ ያትሙ። ኮምፒውተርም ሆነ ኬብል አያስፈልግም።",
       },
       pill3: {
         t: "ሙሉ ቁጥጥር",
-        s: "ከየትኛውም ቦታ ሆነው የቀጥታ ሽያጭ መረጃዎችን እና ትንተናዎችን መከታተል ያስችላል።",
+        s: "ከየትኛውም ቦታ ሆነው በቀጥታ ሽያጭ መረጃዎችን እና ትንተናዎችን መከታተል ያስችላል።",
       },
     },
     smartPrinting: {
-      badge: "ዘመናዊ ህትመት",
-      title: "አንድ ስልክ ለሙሉ ካፌዎ በቂ ነው።",
-      sub: "ሰፊ ቦታ የሚይዙ ኮምፒውተሮችን እና የተጠላለፉ ገመዶችን አያስፈልጉም። ስማርት ቦኖ ከየትኛውም የብሉቱዝ አታሚ (Thermal printer) ጋር ያለገመድ ይገናኛል። ካሸርዎ ጠቅላላ ትዕዛዞችን ከስልኳ ሆና ታስተዳድራለች።",
+      badge: "ዘመናዊ የአስተናጋጅ ክትትል",
+      title: "የወረቀት ቦኖ ብክነትን እና ስህተትን ያስወግዱ።",
+      sub: "በፈረቃ መጨረሻ ላይ በእጅ የተጻፉ ቦኖዎችን በመደመር ጊዜዎን አያባክኑ። ስማርት ቦኖ (Smart Bono) የእያንዳንዱን አስተናጋጅ ትዕዛዝ በዘመናዊ መንገድ በመመዝገብ፣ ዕለታዊ የሂሳብ ማጠቃለያዎን ያለምንም ስህተት በቀላሉ እንዲያገኙ ያደርጋል።",
       features: [
         {
-          t: "የብሉቱዝ (Bluetooth) ህትመት",
-          s: "አንዴ ብቻ ያገናኙ (Pair)፣ በማንኛውም ጊዜ በአማርኛ ደረሰኞችን ያትሙ።",
+          t: "የአስተናጋጆች ትክክለኛ ሪፖርት",
+          s: "እያንዳንዱ አስተናጋጅ በዕለቱ የሸጠውን በትክክል በመለየት የሂሳብ ስህተቶችን ያስወግዳል።",
         },
-        { t: "ኮምፒውተር የለም፣ ገመድ የለም", s: "ለማንኛውም ካፌ የሚስማማ ዘመናዊ እና ቀላል አሰራር።" },
         {
-          t: "ፕሮፌሽናል ደረሰኞች",
-          s: "ትዕዛዝ መለያ ቁጥር፣ የትዕዛዙ ዝርዝር፣ የውጭ መስተንግዶ መለያ አድራሻ እና ጠቅላላ ድምር ያለው ደረሰኝ በእያንዳንዱ ህትመት።",
+          t: "ዲጂታል እና የታተሙ ቦኖዎች",
+          s: "ትዕዛዞችን በስልክዎ ብቻ ማስተዳደር፣ እንዲሁም አስፈላጊ ሲሆን ከብሉቱዝ (Thermal printer) አታሚዎች ጋር በማገናኘት ማተም ይችላሉ።",
+        },
+        {
+          t: "ያልተመዘገቡ ሽያጮችን ይከላከሉ",
+          s: "የወጣው ትዕዛዝ ሁሉ ይመዘገባል፣ የትኛውም ሽያጭ ያለምዝገባ አያልፍም።",
         },
       ],
     },
@@ -468,19 +471,19 @@ export const dictionaries = {
       badge: "የዕለት ተዕለት ክንውኖች",
       title1: "ይዘዙ፣ ያረጋግጡ፣",
       title2: "እና ወዲያውኑ ያትሙ።",
-      sub: "ምርቶችን በቀላሉ ይምረጡ፣ ትዕዛዞችን ይቀበሉ እና ደረሰኞችን በሰከንዶች ውስጥ ያትሙ። የሙሉ ቀን ሽያጭን ይከታተሉ፣ የትኞቹ ምርቶች እንደተሸጡ ከካሸር ሆነው ይቆጣጠሩ፣ እንዲሁም በእያንዳንዱ ፈረቃ የእያንዳንዱን አስተናጋጅ አፈፃፀም ይመልከቱ።",
+      sub: "በእጅ የሚጻፉ የትዕዛዝ ወረቀቶችን በማስቀረት ክፍያን በቀላሉ ያስተዳድሩ። የሙሉ ቀን ሽያጭዎን ያለምንም ስህተት ይከታተሉ፣ የትኞቹ ምርቶች እንደተሸጡ ይቆጣጠሩ፣ እንዲሁም በእያንዳንዱ ፈረቃ የእያንዳንዱን አስተናጋጅ አፈፃፀም ያለምንም የሂሳብ ድካም ይመልከቱ።",
       minis: [
         { lbl: "ፈጣን ትዕዛዝ", sub: "ምርቶችን በምስል ማየት" },
         { lbl: "ፈጣን ህትመት", sub: "ያለ ምንም መዘግየት ጠቅ ያድርጉ፣ ያትሙ" },
-        { lbl: "የዕለቱ ሽያጭ", sub: "ፈረቃዎችን በቀላሉ ይከታተሉ" },
-        { lbl: "የአስተናጋጆች መረጃ", sub: "የእያንዳንዱ ሰው አፈጻጸም" },
+        { lbl: "የዕለቱ ሽያጭ", sub: "ትእዛዞችን በቀላሉ ይከታተሉ" },
+        { lbl: "የአስተናጋጆች መረጃ", sub: "የእያንዳንዱ ሰው አፈጻጸም ይመልከቱ" },
       ],
     },
     admin: {
       badge: "የአስተዳደር እና የባለቤት መቆጣጠሪያ",
       title1: "ሽያጭዎን በሚመችዎ",
       title2: "ቦታ ሆነው ያስተዳድሩ።",
-      sub: "እንደ ባለቤት ወይም አስተዳዳሪ፣ የጠቅላላ ስራዎን ዝርዝር መረጃ ከላይ ሆነው መመልከት ይችላሉ። የቀጥታ ሽያጭን ይከታተሉ፣ ዝርዝር ትዕዛዞችን ያረጋግጡ፣ እና የሰራተኞችዎን አፈፃፀም ካፌው ሳይደርሱ ይቆጣጠሩ።",
+      sub: "እንደ ባለቤት ወይም አስተዳዳሪ፣ የጠቅላላ ስራዎን ዝርዝር መረጃ ከላይ ሆነው መመልከት ይችላሉ። የቀጥታ ሽያጭን ይከታተሉ፣ ዝርዝር ትዕዛዞችን ያረጋግጡ፣ እና የሰራተኞችዎን አፈፃፀም ካፌው ሳይገኙ ይቆጣጠሩ።",
       features: [
         {
           t: "የቀጥታ የሽያጭ ዳሽቦርድ ማሳያ",
@@ -522,15 +525,15 @@ export const dictionaries = {
         Hybrid: "ሃይብሪድ",
       },
       tiersTag: {
-        Entry: "መሰረታዊ የካፌ ስራ እና ያለ ማቋረጥ ማተም",
+        Entry: "መሰረታዊ የካፌ ማስተዳደሪያ እና የአስተናጋጅ ክትትል",
         Professional: "እለታዊ የገንዘብ እንቅስቃሴ እና ወጪ ቁጥጥር ተጨማሪ",
         Full: "ጥሬ እቃ እና የእቃ ግምጃ ቤት ቁጥጥር ተጨማሪ",
         Hybrid: "በተለያዩ ስልኮች ለመጠቀም እና በቀጥታ ለማገናኘት",
       },
       tiersFeat: {
         Entry: [
-          "ያለ ኢንተርኔት የሚሰራ POS",
-          "በስልክዎ የሙቀት ደረሰኞችን (Thermal) ማተም",
+          "ያለ ኢንተርኔት የሚሰራ ቦኖ",
+          "ዲጂታል የአስተናጋጆች ክትትል",
           "ሜኑ እና ትዕዛዝ መቀበል",
           "ዕለታዊ የሽያጭ ማጠቃለያ",
           "የአማርኛ + የእንግሊዝኛ ቋንቋ",
@@ -563,11 +566,11 @@ export const dictionaries = {
     trust: {
       items: [
         {
-          t: "የመረጃ ደህንነት (Data Backup)",
-          s: "የሽያጭ ውሂብዎ በስልክዎ ላይ፣ እንዲሁም በተፈለገ ጊዜ በደመና (Cloud) ላይ በተጠበቀ ሁኔታ ይቀመጣል።",
+          t: "ለመጠቀም እጅግ ቀላል",
+          s: "ማንኛውም አስተናጋጅ እና ካሸር በቀላሉ ሊጠቀምበት ይችላል። ልዩ የኮምፒውተር እውቀት ወይም ረጅም ስልጠና አያስፈልግም።",
         },
         {
-          t: "ይሰራል! ግንኙነት ቢቋረጥም",
+          t: "ኢንተርኔት ቢቋረጥም ይሰራል!",
           s: "ለኢትዮጵያ ታስቦ የተሰራ፡ የመብራት መቆራረጥ እና የኮኔክሽን ችግር ግብይትዎን አያቋርጡም።",
         },
         {
@@ -578,7 +581,7 @@ export const dictionaries = {
     },
     cta: {
       title: "ስማርት ቦኖን ወደ ካፌዎ ለማምጣት ዝግጁ ነዎት?",
-      sub: "የአላርም ቴክኖሎጂ ቡድንን ያነጋግሩ። ተገቢ የሆነውን የአከፋፈል አማራጭ እንመርጥልዎታለን፤ ለሰራተኞችዎ ስልጠና ሰጥተን ዛሬውኑ የመጀመሪያ ስማርት ቦኖ/ትኬቶን እንዲያትሙ እናደርጋለን።",
+      sub: "የአላርም ቴክኖሎጂ ቡድንን ያነጋግሩ። ተገቢ የሆነውን የአከፋፈል አማራጭ እንመርጥልዎታለን፤ ለሰራተኞችዎ ስልጠና ሰጥተን ዛሬውኑ የእያንዳንዱን አስተናጋጅ ሽያጭ ያለምንም ስህተት እንዲቆጣጠሩ እናግዛለን።",
       pricing: "ዋጋዎቹን ይመልከ቉",
       bookDemo: "ዴሞ ያስይዙ",
       sales: "የሽያጭ ክፍል ያነጋግሩ",
