@@ -1,5 +1,5 @@
 import { dictionaries } from "@/locales/dictionaries";
-import { TIER_BASE_ETB } from "@/lib/pricing";
+import { TIER_BASE_ETB, TIER_PRICES_ETB } from "@/lib/pricing";
 import type {
   PlanTier,
   PricingConfigUI,
@@ -24,7 +24,7 @@ const TIER_KEYS: Array<{
   { tierId: "entry", order: 0, labelKey: "Entry" },
   { tierId: "professional", order: 1, labelKey: "Professional", popular: true },
   { tierId: "full", order: 2, labelKey: "Full" },
-  { tierId: "hybrid", order: 3, labelKey: "Hybrid", enterprise: true },
+  { tierId: "hybrid", order: 3, labelKey: "Hybrid" },
 ];
 
 export function getDefaultPricingSectionContent(): PricingSectionContent {
@@ -67,6 +67,7 @@ export function getDefaultPricingTierContent(
     tierId,
     order: meta.order,
     baseEtb: base,
+    pricesEtb: TIER_PRICES_ETB[tierId],
     popular: !!meta.popular,
     enterprise: !!meta.enterprise,
     nameEn: en.tiersLabel[labelKey],
@@ -113,6 +114,7 @@ export function tierContentToUI(
     name: isAm ? content.nameAm : content.nameEn,
     tagline: isAm ? content.taglineAm : content.taglineEn,
     baseEtb: content.baseEtb,
+    pricesEtb: content.pricesEtb ?? null,
     popular: content.popular,
     enterprise: content.enterprise,
     features: isAm ? content.featuresAm : content.featuresEn,

@@ -403,24 +403,24 @@ export const companyService = {
 
 // ─── Appointment Service ──────────────────────────────────────────────────────
 
+/**
+ * Checks whether a phone number or user already has an active demo booking.
+ * Uses the public-readable `booking_locks` collection instead of querying
+ * `appointments` directly, which requires authentication under Firestore rules.
+ */
 async function findBlockingAppointment(
   phone: string,
   userId?: string,
-): Promise<Appointment | null> {
-  if (userId) {
-    const byUser = await queryDocuments<Appointment>(COLLECTIONS.APPOINTMENTS, [
-      where("userId", "==", userId),
-      where("status", "in", BLOCKING_APPOINTMENT_STATUSES),
-      limit(1),
-    ]);
-    if (byUser.length > 0) return byUser[0];
+): Promise<Pick<Appointment, "id"> | null> {
+  const db = getDb();
+  const lockIds = bookingLockIds(userId, phone);
+  for (const lockId of lockIds) {
+    const snap = await getDoc(doc(db, COLLECTIONS.BOOKING_LOCKS, lockId));
+    if (snap.exists()) {
+      return { id: snap.data().appointmentId as string };
+    }
   }
-  const byPhone = await queryDocuments<Appointment>(COLLECTIONS.APPOINTMENTS, [
-    where("phone", "==", phone),
-    where("status", "in", BLOCKING_APPOINTMENT_STATUSES),
-    limit(1),
-  ]);
-  return byPhone[0] ?? null;
+  return null;
 }
 
 async function releaseBookingLocksForAppointment(
@@ -705,7 +705,10 @@ export const contentService = {
       for (const tierId of PLAN_TIER_ORDER) {
         const item = await this.get(pricingTierKey(tierId));
         const tier = contentToTier(item);
-        if (item?.isPublished && tier) {
+        // If the stored tier has no pricesEtb it was saved before the
+        // per-term pricing migration → treat it as outdated and use the
+        // current code defaults so the new pricing is always reflected.
+        if (item?.isPublished && tier && tier.pricesEtb != null) {
           tiers.push(tier);
         } else {
           tiers.push(getDefaultPricingTierContent(tierId));
@@ -794,11 +797,14 @@ export const contentService = {
     }
     for (const tierId of PLAN_TIER_ORDER) {
       const existing = await this.get(pricingTierKey(tierId));
-      if (!existing) {
+      const stored = existing ? contentToTier(existing) : null;
+      // Create missing docs OR migrate pre-pricing tiers that lack pricesEtb.
+      if (!existing || stored?.pricesEtb == null) {
         await this.savePricingTier(
           tierId,
           getDefaultPricingTierContent(tierId),
           adminId,
+          existing?.isPublished ?? true,
         );
       }
     }
@@ -823,8 +829,10 @@ export const contentService = {
     const tiersPublished = {} as Record<PlanTier, boolean>;
     for (const tierId of PLAN_TIER_ORDER) {
       const item = await this.get(pricingTierKey(tierId));
+      const stored = contentToTier(item);
+      // Fall back to code defaults for tiers saved before per-term pricing.
       tiers[tierId] =
-        contentToTier(item) ?? getDefaultPricingTierContent(tierId);
+        stored?.pricesEtb != null ? stored : getDefaultPricingTierContent(tierId);
       tiersPublished[tierId] = item?.isPublished ?? true;
     }
     const bannerItem = await this.get(PROMO_BANNER_KEY);

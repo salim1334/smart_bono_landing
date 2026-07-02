@@ -81,6 +81,7 @@ export function Pricing({
               tier.tierId,
               term,
               tier.baseEtb,
+              tier.pricesEtb,
             );
             const perMonth = quote.monthlyEtb;
             const total = quote.totalEtb;

@@ -225,6 +225,8 @@ export interface PricingTierContent {
   tierId: PlanTier;
   order: number;
   baseEtb: number | null;
+  /** Explicit monthly price per billing term (ETB/mo). When present, overrides baseEtb + multiplier calculation. */
+  pricesEtb: Record<BillingTerm, number> | null;
   popular: boolean;
   enterprise: boolean;
   nameEn: string;
@@ -269,6 +271,8 @@ export interface PricingTierUI {
   name: string;
   tagline: string;
   baseEtb: number | null;
+  /** Explicit monthly price per billing term (ETB/mo). When present, overrides baseEtb + multiplier calculation. */
+  pricesEtb: Record<BillingTerm, number> | null;
   popular?: boolean;
   enterprise?: boolean;
   features: string[];

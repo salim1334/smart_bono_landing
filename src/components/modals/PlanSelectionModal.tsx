@@ -103,13 +103,13 @@ export function PlanSelectionModal({
 
   const { tier, term } = selection;
   const tierMeta = pricingTiers.find((x) => x.tierId === tier);
-  const quote = calculatePlanQuote(tier, term, tierMeta?.baseEtb);
+  const quote = calculatePlanQuote(tier, term, tierMeta?.baseEtb, tierMeta?.pricesEtb);
   const tierName =
     pricingTiers.length > 0
       ? getTierDisplayName(pricingTiers, tier)
       : t.tierNames[tier];
   const termLabel = t.months[String(term) as "3" | "6" | "12"];
-  const isHybrid = tier === "hybrid";
+  const isHybrid = quote.monthlyEtb === null;
 
   const canProceed = () => {
     if (step === 0) return true;

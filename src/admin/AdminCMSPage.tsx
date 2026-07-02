@@ -45,10 +45,10 @@ function textToFeatures(text: string): string[] {
 }
 
 const TIER_LABELS: Record<PlanTier, string> = {
-  entry: "Entry",
-  professional: "Professional",
-  full: "Full",
-  hybrid: "Hybrid",
+  entry: "Offline Normal",
+  professional: "Offline Advanced",
+  full: "Hybrid (Without FB)",
+  hybrid: "Hybrid (With FB)",
 };
 
 function Field({
@@ -384,24 +384,8 @@ export function AdminCMSPage() {
                       Published
                     </label>
                   </div>
-                  <div className="grid sm:grid-cols-3 gap-4">
-                    <label className="text-xs font-semibold text-muted-foreground uppercase">
-                      Base ETB / month
-                      <input
-                        type="number"
-                        disabled={tier.enterprise}
-                        value={tier.baseEtb ?? ""}
-                        onChange={(e) =>
-                          updateTier(tierId, {
-                            baseEtb: e.target.value
-                              ? Number(e.target.value)
-                              : null,
-                          })
-                        }
-                        className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm"
-                      />
-                    </label>
-                    <label className="flex items-center gap-2 text-sm pt-6">
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <label className="flex items-center gap-2 text-sm pt-1">
                       <input
                         type="checkbox"
                         checked={tier.popular}
@@ -411,20 +395,52 @@ export function AdminCMSPage() {
                       />
                       Most popular
                     </label>
-                    <label className="flex items-center gap-2 text-sm pt-6">
+                    <label className="flex items-center gap-2 text-sm pt-1">
                       <input
                         type="checkbox"
                         checked={tier.enterprise}
                         onChange={(e) =>
                           updateTier(tierId, {
                             enterprise: e.target.checked,
+                            pricesEtb: e.target.checked ? null : tier.pricesEtb,
                             baseEtb: e.target.checked ? null : tier.baseEtb,
                           })
                         }
                       />
-                      Enterprise (custom pricing)
+                      Custom pricing (no price shown)
                     </label>
                   </div>
+                  {!tier.enterprise && (
+                    <div className="grid sm:grid-cols-3 gap-4">
+                      {([3, 6, 12] as const).map((term) => (
+                        <label
+                          key={term}
+                          className="text-xs font-semibold text-muted-foreground uppercase"
+                        >
+                          {term}-month price (ETB/mo)
+                          <input
+                            type="number"
+                            value={tier.pricesEtb?.[term] ?? ""}
+                            onChange={(e) => {
+                              const val = e.target.value
+                                ? Number(e.target.value)
+                                : undefined;
+                              const current = tier.pricesEtb ?? {
+                                3: 0,
+                                6: 0,
+                                12: 0,
+                              };
+                              updateTier(tierId, {
+                                pricesEtb: { ...current, [term]: val ?? 0 },
+                                ...(term === 3 ? { baseEtb: val ?? null } : {}),
+                              });
+                            }}
+                            className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm"
+                          />
+                        </label>
+                      ))}
+                    </div>
+                  )}
                   <div className="grid md:grid-cols-2 gap-4">
                     <Field
                       label="Name (EN)"

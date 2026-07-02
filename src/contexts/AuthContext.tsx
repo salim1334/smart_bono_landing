@@ -9,10 +9,8 @@ import {
 } from "react";
 import {
   getAdditionalUserInfo,
-  getRedirectResult,
   onAuthStateChanged,
   signInWithPopup,
-  signInWithRedirect,
   signOut,
   type User,
 } from "firebase/auth";
@@ -27,13 +25,6 @@ import type { UserProfile, UserRole } from "@/lib/types";
 
 const SUPER_ADMIN_EMAIL = "salimahmed110077@gmail.com";
 
-function prefersRedirectSignIn(): boolean {
-  if (typeof window === "undefined") return false;
-  return (
-    window.matchMedia("(max-width: 767px)").matches ||
-    /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)
-  );
-}
 
 export interface AuthSignInResult {
   isNewUser: boolean;
@@ -108,38 +99,32 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     let unsubscribeAuth: (() => void) | undefined;
 
-    void getRedirectResult(auth)
-      .catch((err) => {
-        console.error("Google redirect sign-in failed:", err);
-      })
-      .finally(() => {
-        unsubscribeAuth = onAuthStateChanged(auth, async (firebaseUser) => {
-          setUser(firebaseUser);
+    unsubscribeAuth = onAuthStateChanged(auth, async (firebaseUser) => {
+      setUser(firebaseUser);
 
-          if (unsubscribeProfile) {
-            unsubscribeProfile();
-            unsubscribeProfile = undefined;
-          }
+      if (unsubscribeProfile) {
+        unsubscribeProfile();
+        unsubscribeProfile = undefined;
+      }
 
-          if (!firebaseUser) {
-            setProfile(null);
-            setLoading(false);
-            return;
-          }
+      if (!firebaseUser) {
+        setProfile(null);
+        setLoading(false);
+        return;
+      }
 
-          try {
-            await ensureUserProfile(firebaseUser);
-            unsubscribeProfile = userService.subscribeToProfile(
-              firebaseUser.uid,
-              setProfile,
-            );
-          } catch (err) {
-            console.error("Failed to load user profile:", err);
-          } finally {
-            setLoading(false);
-          }
-        });
-      });
+      try {
+        await ensureUserProfile(firebaseUser);
+        unsubscribeProfile = userService.subscribeToProfile(
+          firebaseUser.uid,
+          setProfile,
+        );
+      } catch (err) {
+        console.error("Failed to load user profile:", err);
+      } finally {
+        setLoading(false);
+      }
+    });
 
     return () => {
       unsubscribeAuth?.();
@@ -153,18 +138,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       throw new Error(
         "Firebase is not configured. Add your keys to .env first.",
       );
-    }
-
-    const provider = getGoogleProvider();
-
-    if (prefersRedirectSignIn()) {
-      await signInWithRedirect(auth, provider);
-      return {
-        isNewUser: false,
-        needsPhone: false,
-        needsOnboarding: false,
-        isAdmin: false,
-      };
     }
 
     const credential = await signInWithPopup(auth, getGoogleProvider());
