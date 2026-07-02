@@ -14,13 +14,16 @@ export function Pricing({
   term,
   setTerm,
   pricingData,
+  loading,
   onSelectPlan,
 }: {
   term: BillingTerm;
   setTerm: (t: BillingTerm) => void;
   pricingData: PricingConfigUI;
+  loading?: boolean;
   onSelectPlan?: (tier: PlanTier) => void;
 }) {
+
   const t = pricingData.section;
 
   const termLabels: Record<
@@ -119,10 +122,26 @@ export function Pricing({
                   {tier.enterprise ? (
                     <>
                       <div className="font-display text-3xl font-bold text-ink">
-                        {t.custom}
+                        {loading ? "" : t.custom}
+                        {loading && (
+                          <div className="h-9 w-28 rounded-md bg-primary/10 animate-pulse" />
+                        )}
                       </div>
                       <div className="text-xs text-muted-foreground mt-1">
-                        {t.talkSales}
+                        {loading ? "" : t.talkSales}
+                        {loading && (
+                          <div className="h-4 w-36 rounded-md bg-primary/10 animate-pulse" />
+                        )}
+                      </div>
+                    </>
+                  ) : loading ? (
+                    <>
+                      <div className="flex items-baseline gap-1.5">
+                        <div className="h-11 w-28 rounded-md bg-primary/10 animate-pulse" />
+                        <div className="h-5 w-20 rounded-md bg-primary/10 animate-pulse" />
+                      </div>
+                      <div className="text-xs text-muted-foreground mt-1">
+                        <div className="h-4 w-52 rounded-md bg-primary/10 animate-pulse" />
                       </div>
                     </>
                   ) : (
@@ -141,6 +160,7 @@ export function Pricing({
                     </>
                   )}
                 </div>
+
 
                 <ul className="mt-6 space-y-3 flex-1">
                   {tier.features.map((f, i) => (

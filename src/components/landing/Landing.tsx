@@ -30,7 +30,8 @@ type Term = 3 | 6 | 12;
 
 export function Landing() {
   const navigate = useNavigate();
-  const [term, setTerm] = useState<Term>(6);
+  const [term, setTerm] = useState<Term>(12);
+
   const [lang, setLang] = useState<Language>('am');
 
   useEffect(() => {
@@ -42,7 +43,8 @@ export function Landing() {
   const [planModalOpen, setPlanModalOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<PlanSelection | null>(null);
   const t = dictionaries[lang];
-  const { config: pricingConfig } = usePricingContent(lang);
+  const { config: pricingConfig, loading: pricingLoading } = usePricingContent(lang);
+
   const openDemo = () => setDemoOpen(true);
 
   const handleSelectPlan = (tier: PlanTier) => {
@@ -80,8 +82,10 @@ export function Landing() {
         term={term}
         setTerm={setTerm}
         pricingData={pricingConfig}
+        loading={pricingLoading}
         onSelectPlan={handleSelectPlan}
       />
+
       <Trust t={t.trust} />
       <CTA t={t.cta} onBookDemo={openDemo} />
       <Footer t={t.footer} />

@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { ArrowRight, Printer, WifiOff } from "lucide-react";
-import phonePrinter from "@/assets/phone-printer.png";
+import phonePrinter from "@/assets/phone-printer.jpeg";
 
 export function Hero({
   t,

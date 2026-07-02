@@ -1,6 +1,6 @@
 import { Cloud } from "lucide-react";
 import { motion } from "motion/react";
-import hybrid from "@/assets/hybrid-ecosystem.png";
+import hybrid from "@/assets/hybrid-ecosystem.jpeg";
 import { Users, ChefHat, Wallet, LineChart } from "lucide-react";
 
 export function Hybrid({ t }: { t: any }) {

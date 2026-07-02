@@ -1,6 +1,6 @@
 import { Check, Sparkles } from "lucide-react";
 import { motion } from "motion/react";
-import manApp from "@/assets/man-app.png";
+import manApp from "@/assets/man-app.jpeg";
 
 export function SmartPrinting({ t }: { t: any }) {
   return (
